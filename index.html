@@ -1,94 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieVerse</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f6">
+  <title>برای ستیا | یک هدیه از ته دل 💗</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+  <div class="stars" id="stars"></div>
 
-    <header>
+  <header class="topbar">
+    <div class="brand">یک گوشه‌ی کوچک برای ستیا <span>♡</span></div>
+    <div class="top-note">با کلی حرف نگفته</div>
+  </header>
 
-        <div class="logo">
-            🎬 MovieVerse
+  <main class="page">
+    <section class="intro" id="intro">
+      <div class="intro-heart">♡</div>
+      <p class="eyebrow">یه هدیه‌ی کوچولو، برای یه آدم دوست‌داشتنی</p>
+      <h1>ستیا جان،<br><span>این چند صفحه مال توئه.</span></h1>
+      <p class="intro-text">
+        نه مناسبت خاصی هست، نه دلیل عجیب‌وغریبی...
+        فقط دلم خواست یه گوشه از حرف‌هایی رو که شاید همیشه فرصت گفتنشون پیش نمیاد، برات بنویسم.
+      </p>
+      <button class="primary-button" id="startButton">
+        بریم بخونیم؟ <span>←</span>
+      </button>
+      <div class="intro-foot">آروم بخون، عجله‌ای نیست. 💗</div>
+    </section>
+
+    <section class="story hidden" id="story">
+      <div class="progress-area">
+        <div class="progress-info">
+          <span id="chapterLabel">صفحه‌ی ۱ از ۱۲</span>
+          <span id="progressPercent">۸٪</span>
         </div>
-<div class="menu-toggle">☰</div>
-        <nav>
-            <a href="#">خانه</a>
-            <a href="#">فیلم‌ها</a>
-            <a href="#">سریال‌ها</a>
-            <a href="#">درباره ما</a>
-        </nav>
-<input type="text" id="search" placeholder="جستجوی فیلم...">
-    </header>
-
-<section class="hero">
-
-    <h1>به MovieVerse خوش آمدید 🎬</h1>
-
-    <p>
-        جدیدترین فیلم‌ها، سریال‌ها و انیمه‌های دنیا را در یک جا دنبال کن.
-    </p>
-
-    <button>مشاهده فیلم‌ها</button>
-
-</section>
-<section class="slider">
-
-    <div class="slide active">
-        🎥 Interstellar
-    </div>
-
-    <div class="slide">
-        🃏 Joker
-    </div>
-
-    <div class="slide">
-        🦇 The Batman
-    </div>
-
-</section>
-<div class="filters">
-
-    <button onclick="filterMovies('all')">همه</button>
-    <button onclick="filterMovies('action')">اکشن</button>
-    <button onclick="filterMovies('drama')">درام</button>
-
-</div>
-
-<section class="movies">
-
-    <h2>🎬 فیلم‌های محبوب</h2>
-
-    <div class="movie-list">
-
-        <div class="movie-card">
-            <span class="heart">🤍</span>
-            <img src="images/interstellar.jpg">
-            <onclick="goToMovie('Interstellar')">
-            <h3>Interstellar</h3>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
+      </div>
 
-        <div class="movie-card">
-            <span class="heart">🤍</span>
-            <img src="images/joker.jpg">
-            <onclick="goToMovie('Joker')"></onclick>
-            <h3>Joker</h3>
-        </div>
+      <article class="letter-card" id="letterCard">
+        <div class="card-decoration">✦</div>
+        <div class="chapter-tag" id="chapterTag">یک حرف از ته دل</div>
+        <div class="chapter-icon" id="chapterIcon">♡</div>
+        <h2 id="chapterTitle"></h2>
+        <div class="chapter-text" id="chapterText"></div>
+        <div class="chapter-bottom" id="chapterBottom">با مهر، از طرف داداشت ♡</div>
+      </article>
 
-        <div class="movie-card">
-            <span class="heart">🤍</span>
-            <onclick="goToMovie('TheBatman')"></onclick>
-            <img src="images/batman.jpg">
-            <h3>The Batman</h3>
-        </div>
+      <div class="navigation">
+        <button class="secondary-button" id="backButton">قبلی</button>
+        <button class="primary-button" id="nextButton">صفحه‌ی بعد <span>←</span></button>
+      </div>
+      <p class="tiny-note">هر صفحه یه تکه از حرفای نگفته‌ست...</p>
+    </section>
 
-    </div>
+    <section class="ending hidden" id="ending">
+      <div class="ending-sparkle">✧</div>
+      <p class="eyebrow">و اما حرف آخر...</p>
+      <h2>ستیا، همین‌قدر<br><span>قشنگ بمون.</span></h2>
+      <div class="final-letter" id="finalLetter"></div>
+      <div class="signature">از طرف همون داداش مجازیت<br><strong>که از آشنایی باهات خوشحاله ♡</strong></div>
+      <button class="primary-button" id="replayButton">از اول بخونیم؟ ↺</button>
+      <button class="heart-button" id="heartButton">یه عالمه قلب برای ستیا ♡</button>
+      <div id="heartRain"></div>
+    </section>
+  </main>
 
-</section>
+  <footer>
+    <span>ساخته شده با کلی ذوق و محبت</span>
+    <span>برای ستیا ♡</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
